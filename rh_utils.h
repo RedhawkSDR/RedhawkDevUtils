@@ -287,8 +287,11 @@ namespace BIO_HELPER {
 			strftime( timeArray, 30, "%d-%b-%Y %H:%M:%S", local );      //prints out string from tm struct
 		std::string time = std::string( timeArray );
 		if( include_fractional ) {
+			double fract_seconds = timeTag.tfsec;
+    			if(!std::isfinite(fract_seconds))
+    				fract_seconds = 0.0;
 			char    fractSec[30];
-			sprintf( fractSec, "%010.0f", timeTag.tfsec * 1e10 );
+			sprintf( fractSec, "%010.0f", fract_seconds * 1e10 );
 			time += "." + std::string( fractSec );
 		}
 		return time;
