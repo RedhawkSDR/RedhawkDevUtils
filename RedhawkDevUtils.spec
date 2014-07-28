@@ -27,7 +27,7 @@
 Name: 		RedhawkDevUtils_v1
 #must match the version number in the configure.ac file
 Version: 	3.0.0
-Release:	9%{?dist}
+Release:	10%{?dist}
 Summary: 	Dependency RedhawkDevUtils
 Prefix:		%{_sdrroot}
 
