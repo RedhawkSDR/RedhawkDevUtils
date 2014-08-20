@@ -18,7 +18,7 @@
 # along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 
-AC_INIT(RedhawkDevUtils, 3.0.0)
+AC_INIT(RedhawkDevUtils, 3.0.1)
 AM_INIT_AUTOMAKE(nostdinc)
 LT_INIT
 
