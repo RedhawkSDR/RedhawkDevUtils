@@ -24,24 +24,24 @@
 %define _sdrroot /var/redhawk/sdr
 %define _prefix %{_sdrroot}
 #reflects the name in the configure.ac file
-Name: 		RedhawkDevUtils_v1
+Name: 		    RedhawkDevUtils_v1
 #must match the version number in the configure.ac file
 Version:        3.0.1
 Release:        1%{?dist}
-Summary: 	Dependency RedhawkDevUtils
-Prefix:		%{_sdrroot}
+Summary: 	    Dependency RedhawkDevUtils
+Prefix:		    %{_sdrroot}
 
-Group: 		REDHAWK/Dependencies
-License: 	None
-URL:		http://redhawksdr.org/	
-Source0: 	%{name}-%{version}.tar.gz
+Group: 		    REDHAWK/Dependencies
+License: 	    LGPLv3+
+URL:		    http://redhawksdr.org/
+Source0: 	    %{name}-%{version}.tar.gz
 
-AutoReqProv: yes
+AutoReqProv:    yes
 
-Requires: redhawk >= 1.10
-BuildRequires: redhawk-devel >= 1.10 
-BuildRequires: autoconf automake libtool
-BuildRequires: omniORB bulkioInterfaces
+Requires:       redhawk >= 1.10, redhawk < 1.11
+BuildRequires:  redhawk-devel >= 1.10, redhawk-devel < 1.11
+BuildRequires:  bulkioInterfaces >= 1.10, bulkioInterfaces < 1.11
+BuildRequires:  omniORB
 
 # C++ requirements
 %if "%{?rhel}" == "6"
@@ -52,7 +52,7 @@ Requires: e2fsprogs
 
 
 %description
-(U) REDHAWK Basic Components RedhawkDevUtils's development utility library.
+REDHAWK Basic Components RedhawkDevUtils development utility library.
 
 %package devel
 Requires: %{name} = %{version}
@@ -68,7 +68,7 @@ BuildRequires: e2fsprogs-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description devel
-(U) Development files for %{name} that provide useful c++ extension for interacting with the framework
+Development files for %{name} that provide useful c++ extension for interacting with the framework
 
 %prep
 %setup -q
@@ -76,7 +76,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 %build
 ./reconf
 SDRROOT=%{_sdrroot} %configure
-make 
+make
 
 
 %install
