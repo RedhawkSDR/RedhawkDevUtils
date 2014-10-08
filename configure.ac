@@ -18,7 +18,7 @@
 # along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 
-AC_INIT(RedhawkDevUtils, 3.0.1)
+AC_INIT(RedhawkDevUtils, 3.1.0)
 AM_INIT_AUTOMAKE(nostdinc)
 LT_INIT
 
@@ -30,7 +30,7 @@ AC_PROG_LIBTOOL
 AC_CORBA_ORB
 OSSIE_CHECK_OSSIE
 
-PKG_CHECK_MODULES([PROJECTDEPS], [ossie >= 1.10 omniORB4 >= 4.1.0  ])
+PKG_CHECK_MODULES([PROJECTDEPS], [ossie >= 1.11 omniORB4 >= 4.1.0  ])
 OSSIE_ENABLE_LOG4CXX
 AX_BOOST_BASE([1.41])
 AX_BOOST_THREAD

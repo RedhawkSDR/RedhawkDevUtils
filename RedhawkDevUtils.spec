@@ -26,7 +26,7 @@
 #reflects the name in the configure.ac file
 Name: 		    RedhawkDevUtils_v1
 #must match the version number in the configure.ac file
-Version:        3.0.1
+Version:        3.1.0
 Release:        1%{?dist}
 Summary: 	    Dependency RedhawkDevUtils
 Prefix:		    %{_sdrroot}
@@ -38,9 +38,9 @@ Source0: 	    %{name}-%{version}.tar.gz
 
 AutoReqProv:    yes
 
-Requires:       redhawk >= 1.10, redhawk < 1.11
-BuildRequires:  redhawk-devel >= 1.10, redhawk-devel < 1.11
-BuildRequires:  bulkioInterfaces >= 1.10, bulkioInterfaces < 1.11
+Requires:       redhawk >= 1.11, redhawk < 1.12
+BuildRequires:  redhawk-devel >= 1.11, redhawk-devel < 1.12
+BuildRequires:  bulkioInterfaces >= 1.11, bulkioInterfaces < 1.12
 BuildRequires:  omniORB
 
 # C++ requirements
