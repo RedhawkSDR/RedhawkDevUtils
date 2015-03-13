@@ -38,9 +38,9 @@ Source0: 	    %{name}-%{version}.tar.gz
 
 AutoReqProv:    yes
 
-Requires:       redhawk >= 1.11, redhawk < 1.12
-BuildRequires:  redhawk-devel >= 1.11, redhawk-devel < 1.12
-BuildRequires:  bulkioInterfaces >= 1.11, bulkioInterfaces < 1.12
+Requires:       redhawk >= 2.0, redhawk < 2.1
+BuildRequires:  redhawk-devel >= 2.0, redhawk-devel < 2.1
+BuildRequires:  bulkioInterfaces >= 2.0, bulkioInterfaces < 2.1
 BuildRequires:  omniORB
 
 # C++ requirements
