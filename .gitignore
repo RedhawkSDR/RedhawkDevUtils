@@ -6,7 +6,7 @@
 .libs/
 Makefile
 Makefile.in
-RedhawkDevUtils.pc
+rh.RedhawkDevUtils.pc
 acinclude.m4
 aclocal.m4
 autom4te.cache/
@@ -15,4 +15,9 @@ config.status
 config/
 configure
 libtool
-*~
+config.guess
+config.sub
+depcomp
+install-sh
+ltmain.sh
+missing

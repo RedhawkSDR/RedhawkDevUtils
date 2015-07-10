@@ -1,0 +1,8 @@
+c99df9fa4ab0cd042eac42fcee6441c3  reconf
+eefcc155c5c29db5cda860f4ba771603  configure.ac
+4b491ae215584bd356e58e11bf9295b5  src/RedhawkDevUtils.cpp
+65313aa81c4ba22cf4aeb117f45fb244  Makefile.am.ide
+49f846ba4806eec46f234f07b4117c68  RedhawkDevUtils.pc.in
+b87651ea3565402473fb088004430fbf  build.sh
+ac3ea772049cc7d372eeb0febfc9c6ea  include/RedhawkDevUtils.h
+cff3b5dbcd2c4f141d7621612a15eb2a  Makefile.am
