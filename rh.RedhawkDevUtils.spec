@@ -1,3 +1,22 @@
+#
+# This file is protected by Copyright. Please refer to the COPYRIGHT file
+# distributed with this source distribution.
+#
+# This file is part of REDHAWK Basic Components RedhawkDevUtils.
+#
+# REDHAWK Basic Components RedhawkDevUtils is free software: you can redistribute it and/or modify it
+# under the terms of the GNU Lesser General Public License as published by the
+# Free Software Foundation, either version 3 of the License, or (at your
+# option) any later version.
+#
+# REDHAWK Basic Components RedhawkDevUtils is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License
+# for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see http://www.gnu.org/licenses/.
+#
 # By default, the RPM will install to the standard REDHAWK SDR root location (/var/redhawk/sdr)
 %{!?_sdrroot: %define _sdrroot /var/redhawk/sdr}
 %define _prefix %{_sdrroot}/dom/deps/rh/RedhawkDevUtils
@@ -12,28 +31,30 @@
 Name:           rh.RedhawkDevUtils
 Version:        4.0.0
 Release:        1%{?dist}
-Summary:        Shared package %{name}
+Summary:        Shared library %{name}
 
-Group:          REDHAWK/Shared Packages
-License:        None
-Source0:        %{name}-%{version}.tar.gz
+Group:          REDHAWK/Shared Libraries
+License: 	    LGPLv3+
+Source0: 	    %{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  redhawk-devel >= 2.0
+BuildRequires:  bulkioInterfaces >= 2.0
+BuildRequires:  omniORB
+BuildRequires:  libuuid
 BuildRequires:  autoconf automake libtool
 
-
-
 %description
-Shared package %{name}
+Shared library %{name}
 
 %package devel
-Summary:        Shared package %{name}
-Group:          REDHAWK/Shared Packages
+Summary:        Shared library %{name}
+Group:          REDHAWK/Shared Libraries
 Requires:       %{name} = %{version}-%{release}
+Requires:       libuuid-devel
 
 %description devel
-Libraries and header files for shared package %{name}
+Libraries and header files for shared library %{name}
 
 %prep
 %setup -q
