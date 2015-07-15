@@ -2,14 +2,14 @@
 # This file is protected by Copyright. Please refer to the COPYRIGHT file
 # distributed with this source distribution.
 #
-# This file is part of REDHAWK Basic Components RedhawkDevUtils.
+# This file is part of REDHAWK Basic Components rh.RedhawkDevUtils shared library.
 #
-# REDHAWK Basic Components RedhawkDevUtils is free software: you can redistribute it and/or modify it
+# REDHAWK Basic Components rh.RedhawkDevUtils shared library is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published by the
 # Free Software Foundation, either version 3 of the License, or (at your
 # option) any later version.
 #
-# REDHAWK Basic Components RedhawkDevUtils is distributed in the hope that it will be useful, but WITHOUT
+# REDHAWK Basic Components rh.RedhawkDevUtils shared library is distributed in the hope that it will be useful, but WITHOUT
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 # FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License
 # for more details.
@@ -31,7 +31,7 @@
 Name:           rh.RedhawkDevUtils
 Version:        4.0.0
 Release:        1%{?dist}
-Summary:        Shared library %{name}
+Summary:        REDHAWK shared library %{name}
 
 Group:          REDHAWK/Shared Libraries
 License: 	    LGPLv3+
@@ -45,16 +45,16 @@ BuildRequires:  libuuid
 BuildRequires:  autoconf automake libtool
 
 %description
-Shared library %{name}
+REDHAWK shared library %{name}
 
 %package devel
-Summary:        Shared library %{name}
+Summary:        REDHAWK shared library %{name}
 Group:          REDHAWK/Shared Libraries
 Requires:       %{name} = %{version}-%{release}
 Requires:       libuuid-devel
 
 %description devel
-Libraries and header files for shared library %{name}
+Libraries and header files for REDHAWK shared library %{name}
 
 %prep
 %setup -q
