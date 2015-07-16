@@ -34,8 +34,8 @@ Release:        1%{?dist}
 Summary:        REDHAWK shared library %{name}
 
 Group:          REDHAWK/Shared Libraries
-License: 	    LGPLv3+
-Source0: 	    %{name}-%{version}.tar.gz
+License:        LGPLv3+
+Source0:        %{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  redhawk-devel >= 2.0
@@ -43,6 +43,8 @@ BuildRequires:  bulkioInterfaces >= 2.0
 BuildRequires:  omniORB
 BuildRequires:  libuuid
 BuildRequires:  autoconf automake libtool
+
+
 
 %description
 REDHAWK shared library %{name}
@@ -64,7 +66,7 @@ Libraries and header files for REDHAWK shared library %{name}
 # Implementation cpp
 pushd cpp
 ./reconf
-%configure
+%configure --with-sdr=%{_sdrroot}
 make %{?_smp_mflags}
 popd
 

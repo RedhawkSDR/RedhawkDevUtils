@@ -25,7 +25,7 @@ includedir=@includedir@
 
 Name: rh.RedhawkDevUtils
 Description: This is the rh.RedhawkDevUtils shared library.
-Requires:
+Requires: 
 Version: 4.0.0
 Libs: -L${libdir} -lRedhawkDevUtils
 Cflags: -I${includedir}
