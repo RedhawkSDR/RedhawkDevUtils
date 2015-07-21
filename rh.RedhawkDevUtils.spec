@@ -40,9 +40,9 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  redhawk-devel >= 2.0
 BuildRequires:  bulkioInterfaces >= 2.0
-BuildRequires:  omniORB
-BuildRequires:  libuuid
-BuildRequires:  autoconf automake libtool
+
+# Allow upgrades from previous package name
+Obsoletes:      RedhawkDevUtils_v1 < 4.0.0
 
 
 
@@ -54,6 +54,8 @@ Summary:        REDHAWK shared library %{name}
 Group:          REDHAWK/Shared Libraries
 Requires:       %{name} = %{version}-%{release}
 Requires:       libuuid-devel
+Obsoletes:      RedhawkDevUtils_v1-devel < 4.0.0
+
 
 %description devel
 Libraries and header files for REDHAWK shared library %{name}
