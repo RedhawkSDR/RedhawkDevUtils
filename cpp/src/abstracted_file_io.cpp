@@ -75,6 +75,16 @@ FILESYSTEM_TYPE abstracted_file_io::source_uri_to_filesystem(const std::string &
     return type;
 }
 
+boost::filesystem::path path_helper(const std::string &_source_location) {
+    boost::filesystem::path fullPath;
+#if BOOST_FILESYSTEM_VERSION == 2
+    fullPath = boost::filesystem::system_complete(boost::filesystem::path(_source_location, boost::filesystem::native));
+#else
+    fullPath = boost::filesystem::system_complete(boost::filesystem::path(_source_location));
+#endif
+    return fullPath;
+}
+
 std::string abstracted_file_io::uri_to_file(const std::string &_source_file_uri) {
     std::string norm = normalize_uri_path(_source_file_uri);
     std::string source_location, dir, base;
@@ -123,7 +133,7 @@ int abstracted_file_io::sca_file_count(const std::string &_source_file_uri) {
 
 int abstracted_file_io::local_file_count(const std::string &_source_file_uri) {
 	std::string source_location = uri_to_file(_source_file_uri);
-    boost::filesystem::path fullPath = boost::filesystem::system_complete(boost::filesystem::path(source_location, boost::filesystem::native));
+    boost::filesystem::path fullPath = path_helper(source_location);
     if (!boost::filesystem::exists(fullPath)) {
 		std::cerr << "LOCAL FILE COUNT: " << fullPath << " Does Not Exist!\n";
         return 0;
@@ -165,7 +175,7 @@ bool abstracted_file_io::sca_exists(const std::string &_source_file_uri) {
 bool abstracted_file_io::local_exists(const std::string &_source_file_uri) {
     std::string source_location = uri_to_file(_source_file_uri);
 
-    boost::filesystem::path fullPath = boost::filesystem::system_complete(boost::filesystem::path(source_location, boost::filesystem::native));
+    boost::filesystem::path fullPath = path_helper(source_location);
     if (!boost::filesystem::exists(fullPath)) {
         return false;
     }
@@ -235,7 +245,7 @@ std::vector<file_listing> abstracted_file_io::create_listing_from_local_source_u
     std::vector<file_listing> new_listing;
     std::string source_location = uri_to_file(_source_uri);
 
-    boost::filesystem::path fullPath = boost::filesystem::system_complete(boost::filesystem::path(source_location, boost::filesystem::native));
+    boost::filesystem::path fullPath = path_helper(source_location);
     if (!boost::filesystem::exists(fullPath)) {
         std::cerr << "LOCAL FILE LOCATION: " << source_location << " DOES NOT EXIST!\n";
         return new_listing;
@@ -248,12 +258,16 @@ std::vector<file_listing> abstracted_file_io::create_listing_from_local_source_u
             try{
 				file_listing newFile;
 				newFile.file_system_type = LOCAL_FILESYSTEM;
-				newFile.filename_full = local_uri_prefix + it->string();
+				newFile.filename_full = local_uri_prefix + it->path().string();
 				newFile.file_size = boost::filesystem::file_size(*it);
+#if BOOST_FILESYSTEM_VERSION < 3
 				newFile.filename_basename = it->filename();
+#else
+				newFile.filename_basename = it->path().filename().string();
+#endif
 				new_listing.push_back(newFile);
             }catch(...){
-            	std::cerr << "DOES NOT HAVE PERMISSIONS TO ACCESS " << local_uri_prefix + it->string() << "!\n";
+                std::cerr << "DOES NOT HAVE PERMISSIONS TO ACCESS " << local_uri_prefix + it->path().string() << "!\n";
             };
         }
     } else {
@@ -262,7 +276,11 @@ std::vector<file_listing> abstracted_file_io::create_listing_from_local_source_u
 			newFile.file_system_type = LOCAL_FILESYSTEM;
 			newFile.filename_full = local_uri_prefix + fullPath.string();
 			newFile.file_size = boost::filesystem::file_size(fullPath);
+#if BOOST_FILESYSTEM_VERSION < 3
 			newFile.filename_basename = fullPath.filename();
+#else
+			newFile.filename_basename = fullPath.filename().string();
+#endif
 			new_listing.push_back(newFile);
     	 }catch(...){
     	          std::cerr << "DOES NOT HAVE PERMISSIONS TO ACCESS " << local_uri_prefix +fullPath.string() << "!\n";
@@ -392,7 +410,11 @@ unsigned long long abstracted_file_io::file_size(const std::string &_source_file
                 return sca_file_mapping.find(_source_file_uri)->second.curFile->sizeOf();
                 break;
             case LOCAL_FILESYSTEM:
+#if BOOST_FILESYSTEM_VERSION == 2
                 return boost::filesystem::file_size(boost::filesystem::path(non_uri_source, boost::filesystem::native));
+#else
+                return boost::filesystem::file_size(boost::filesystem::path(non_uri_source));
+#endif
                 break;
         }
     } catch (...) {
@@ -536,7 +558,11 @@ bool abstracted_file_io::make_dir(const std::string &_source_dir_uri) {
                 } catch(...){};
                 return sca_file_manager->exists(source_location.c_str());
             case LOCAL_FILESYSTEM:
+#if BOOST_FILESYSTEM_VERSION == 2
                 boost::filesystem::create_directories(boost::filesystem::path(source_location, boost::filesystem::native));
+#else
+                boost::filesystem::create_directories(boost::filesystem::path(source_location));
+#endif
                 return boost::filesystem::is_directory(source_location);
                 break;
         }
@@ -566,10 +592,18 @@ bool abstracted_file_io::uri_path_extraction(const std::string& uri_full, std::s
         nonuri_full += '/';
 
     //Determine Dir and Base
+#if BOOST_FILESYSTEM_VERSION == 2
     boost::filesystem::path full_path(nonuri_full, boost::filesystem::native);
+#else
+    boost::filesystem::path full_path(nonuri_full);
+#endif
     full_path.normalize();
+#if BOOST_FILESYSTEM_VERSION < 3
     basename = full_path.filename();
-    dirname = full_path.directory_string();
+#else
+    basename = full_path.filename().string();
+#endif
+    dirname = full_path.string();
     if (!basename.empty()) {
         size_t pos = dirname.rfind(basename);
         dirname.erase(pos);
