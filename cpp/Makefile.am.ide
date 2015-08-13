@@ -4,6 +4,7 @@
 # by opening the Properties dialog of your project and choosing C/C++ Build ->
 # Tool Chain Editor, and un-checking "Exclude resource from build "
 redhawk_SOURCES_auto = include/abstracted_file_io.h
+redhawk_SOURCES_auto += include/boost_compat.h
 redhawk_SOURCES_auto += include/byte_swap.h
 redhawk_SOURCES_auto += include/dataTypeTransform.h
 redhawk_SOURCES_auto += include/data_type_descriptor.h
