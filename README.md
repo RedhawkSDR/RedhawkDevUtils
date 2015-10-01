@@ -1,4 +1,4 @@
-# REDHAWK Basic Components rh.RedhawkDevUtils
+# REDHAWK Basic Components rh.RedhawkDevUtils shared library
  
 ## Description
 
