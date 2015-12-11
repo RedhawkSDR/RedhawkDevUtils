@@ -25,6 +25,7 @@
 #ifndef _BYTE_SWAP_H
 #define _BYTE_SWAP_H
 
+#include <stdint.h>
 
 #ifdef __GCC__
 #include <byteswap.h>
@@ -114,14 +115,37 @@ inline void Byte_Swap64_inline(void* i) {
 
 // By default there are no swap functions that take in float or doubles
 
-inline float Byte_Swap32(float i) {
-    uint32_t tmp = Byte_Swap32(*((uint32_t*) (void*) & i));
-    return *((float*)(void*) &tmp);
+inline float Byte_Swap32(const float i) {
+
+	float retVal;
+	char *floatToConvert = ( char* ) & i;
+	char *returnFloat = ( char* ) & retVal;
+
+   // swap the bytes into a temporary buffer
+   returnFloat[0] = floatToConvert[3];
+   returnFloat[1] = floatToConvert[2];
+   returnFloat[2] = floatToConvert[1];
+   returnFloat[3] = floatToConvert[0];
+
+   return retVal;
 };
 
-inline double Byte_Swap64(double i) {
-    uint64_t tmp = Byte_Swap64(*((uint64_t*)(void*) & i));
-    return *((double*) (void*) &tmp);
+inline double Byte_Swap64(const double i) {
+	double retVal;
+	char *doubleToConvert = ( char* ) & i;
+	char *returnDouble = ( char* ) & retVal;
+
+   // swap the bytes into a temporary buffer
+   returnDouble[0] = doubleToConvert[7];
+   returnDouble[1] = doubleToConvert[6];
+   returnDouble[2] = doubleToConvert[5];
+   returnDouble[3] = doubleToConvert[4];
+   returnDouble[4] = doubleToConvert[3];
+   returnDouble[5] = doubleToConvert[2];
+   returnDouble[6] = doubleToConvert[1];
+   returnDouble[7] = doubleToConvert[0];
+
+   return retVal;
 };
 
 
