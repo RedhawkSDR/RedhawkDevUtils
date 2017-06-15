@@ -29,8 +29,8 @@
 %define _infodir       %{_prefix}/info
 
 Name:           rh.RedhawkDevUtils
-Version:        4.0.1
-Release:        2%{?dist}
+Version:        4.0.2
+Release:        1%{?dist}
 Summary:        REDHAWK shared library %{name}
 
 Group:          REDHAWK/Shared Libraries

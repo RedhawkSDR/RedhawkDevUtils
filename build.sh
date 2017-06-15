@@ -24,9 +24,9 @@ if [ "$1" = "rpm" ]; then
     if [ -e rh.RedhawkDevUtils.spec ]; then
         mydir=`dirname $0`
         tmpdir=`mktemp -d`
-        cp -r ${mydir} ${tmpdir}/rh.RedhawkDevUtils-4.0.1
-        tar czf ${tmpdir}/rh.RedhawkDevUtils-4.0.1.tar.gz --exclude=".svn" -C ${tmpdir} rh.RedhawkDevUtils-4.0.1
-        rpmbuild -ta ${tmpdir}/rh.RedhawkDevUtils-4.0.1.tar.gz
+        cp -r ${mydir} ${tmpdir}/rh.RedhawkDevUtils-4.0.2
+        tar czf ${tmpdir}/rh.RedhawkDevUtils-4.0.2.tar.gz --exclude=".svn" -C ${tmpdir} rh.RedhawkDevUtils-4.0.2
+        rpmbuild -ta ${tmpdir}/rh.RedhawkDevUtils-4.0.2.tar.gz
         rm -rf $tmpdir
     else
         echo "Missing RPM spec file in" `pwd`
