@@ -30,7 +30,7 @@
 
 Name:           rh.RedhawkDevUtils
 Version:        4.0.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        REDHAWK shared library %{name}
 
 Group:          REDHAWK/Shared Libraries
@@ -101,4 +101,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libRedhawkDevUtils.so
 %{_libdir}/pkgconfig
 %{_prefix}/include
+
+%changelog
+* Wed Jun 21 2017 Ryan Bauman - 4.0.1-3
+- Mass rebuild for REDHAWK 2.1.1
 
