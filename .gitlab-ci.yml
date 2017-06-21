@@ -13,25 +13,26 @@ variables:
     - docker pull ${docker_registry}rpmbuild:${dist}-${arch}-onbuild
     # Use RPM release from specfile if this is a tag
     - safe_version=$(echo ${short_version} | tr -d -)
+    - safe_ref=$(echo ${CI_COMMIT_REF_NAME} | tr -d /| tr '[:upper:]' '[:lower:]')
     - if [ -z "$CI_COMMIT_TAG" ]; then
         redhawk_version=${latest_version}
         rpm_release="0.$CI_PIPELINE_ID.rh${safe_version}";
       else
         redhawk_version=${release_version}
-        rpm_release="`rpm --query --queryformat "%{release}\n" --specfile ${namespace}$CI_PROJECT_NAME.spec | awk -F"." "{print $1}"`.rh${safe_version}";
+        rpm_release=`rpm --query --queryformat "%{release}\n" --specfile ${namespace}$CI_PROJECT_NAME.spec | head -n 1 | awk -F"." "{print $1}"`.rh${safe_version};
       fi
-    - other_repos=$yum_repo_url/redhawk/$redhawk_version/$dist/$arch
+    - redhawk_repo=$yum_repo_url/redhawk-core-framework/$redhawk_version/$dist/$arch
     - docker pull ${docker_registry}rpmbuild:$dist-$arch-onbuild
     - printf "FROM ${docker_registry}rpmbuild:$dist-$arch-onbuild" > Dockerfile
     - name=$(echo $CI_PROJECT_NAME| tr '[:upper:]' '[:lower:]')
-    - docker build -t $name:latest-$dist-$arch --build-arg "project=$CI_PROJECT_NAME"
+    - docker build -t $name:$safe_ref-$dist-$arch-rh${safe_version} --build-arg "project=$CI_PROJECT_NAME"
                                                --build-arg "rpm_release=$rpm_release"
                                                --build-arg "spec_file=${namespace}$CI_PROJECT_NAME.spec"
                                                --build-arg "arch=$arch"
-                                               --build-arg "other_repos=$other_repos" .
-    - id=$(docker create $name:latest-$dist-$arch)
+                                               --build-arg "other_repos=$redhawk_repo" .
+    - id=$(docker create $name:$safe_ref-$dist-$arch-rh${safe_version})
     - docker cp $id:/root/rpmbuild/RPMS/ output/
-    - docker rm -f $id
+    - docker rm -f $id || true
   artifacts:
     paths:
       - output/*/*.rpm
