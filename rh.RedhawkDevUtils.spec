@@ -30,7 +30,7 @@
 
 Name:           rh.RedhawkDevUtils
 Version:        4.0.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        REDHAWK shared library %{name}
 
 Group:          REDHAWK/Shared Libraries
