@@ -221,4 +221,9 @@ trigger:
     - gitlab-ci-trigger --file ${dependencies_url}
   only:
     - branches
+  except:
+    - master
+    - /^.*-external$/
+    - /^(\d+\.)?(\d+)?(\.\d+)$/
+    - /^.*-(\d+\.)?(\d+)?(\.\d+)$/
   allow_failure: true
