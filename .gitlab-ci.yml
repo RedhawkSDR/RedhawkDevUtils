@@ -116,6 +116,10 @@ package:el7:rh2.2:
       done
     - repomanage --keep=2 --old $arch| xargs rm -f; createrepo --update $arch
     - /usr/bin/s3cmd sync -F -v --delete-removed $arch s3://$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/yum/$CI_COMMIT_REF_SLUG/rh${short_version}/$dist/  && s3cmd setacl -v s3://$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/yum/$CI_COMMIT_REF_SLUG/rh${short_version}/$dist --acl-public --recursive || true
+  except:
+    - master
+    - /^.*-external$/
+    - /^(\d+\.)?(\d+)?(\.\d+)$/
 
 deploy-el7-2.2:
   variables:
@@ -203,6 +207,10 @@ abi-check:
                  --devel-pkg2 output/x86_64/$namespace$CI_PROJECT_NAME-devel*.rpm
                  $namespace$CI_PROJECT_NAME-$last_release.rh2.2.el7.centos.x86_64.rpm
                  output/x86_64/$namespace$CI_PROJECT_NAME-4*.rpm
+  except:
+    - master
+    - /^.*-external$/
+    - /^(\d+\.)?(\d+)?(\.\d+)$/
   allow_failure: true
 
 trigger:
