@@ -52,7 +52,7 @@ stages:
 
 package:el6:rh2.0:
   variables:
-    latest_version: 2.0-nightly
+    latest_version: develop-2-0
     release_version: $rh_20_release
     short_version: '2.0'
     dist: el6
@@ -61,7 +61,7 @@ package:el6:rh2.0:
 
 package:el6-i386:rh2.0:
   variables:
-    latest_version: 2.0-nightly
+    latest_version: develop-2-0
     release_version: $rh_20_release
     short_version: '2.0'
     dist: el6
@@ -70,7 +70,7 @@ package:el6-i386:rh2.0:
 
 package:el7:rh2.0:
   variables:
-    latest_version: 2.0-nightly
+    latest_version: develop-2-0
     release_version: $rh_20_release
     short_version: '2.0'
     dist: el7
@@ -79,7 +79,7 @@ package:el7:rh2.0:
 
 package:el6:rh2.2:
   variables:
-    latest_version: 2.2-nightly
+    latest_version: develop-2-2
     release_version: $rh_22_release
     short_version: '2.2'
     dist: el6
@@ -88,7 +88,7 @@ package:el6:rh2.2:
 
 package:el6-i386:rh2.2:
   variables:
-    latest_version: 2.2-nightly
+    latest_version: develop-2-2
     release_version: $rh_22_release
     short_version: '2.2'
     dist: el6
@@ -97,7 +97,7 @@ package:el6-i386:rh2.2:
 
 package:el7:rh2.2:
   variables:
-    latest_version: 2.2-nightly
+    latest_version: develop-2-2
     release_version: $rh_22_release
     short_version: '2.2'
     dist: el7
@@ -106,7 +106,7 @@ package:el7:rh2.2:
 
 package:el6:rh2.3:
   variables:
-    latest_version: 2.3-nightly
+    latest_version: develop
     release_version: $rh_23_release
     short_version: '2.3'
     dist: el6
@@ -115,7 +115,7 @@ package:el6:rh2.3:
 
 package:el6-i386:rh2.3:
   variables:
-    latest_version: 2.3-nightly
+    latest_version: develop
     release_version: $rh_23_release
     short_version: '2.3'
     dist: el6
@@ -124,7 +124,7 @@ package:el6-i386:rh2.3:
 
 package:el7:rh2.3:
   variables:
-    latest_version: 2.3-nightly
+    latest_version: develop
     release_version: $rh_23_release
     short_version: '2.3'
     dist: el7
