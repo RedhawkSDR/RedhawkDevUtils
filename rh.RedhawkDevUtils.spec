@@ -48,6 +48,8 @@ Obsoletes:      RedhawkDevUtils_v1 < 4.0.0
 
 %description
 REDHAWK shared library %{name}
+ * Commit: __REVISION__
+ * Source Date/Time: __DATETIME__
 
 %package devel
 Summary:        REDHAWK shared library %{name}
@@ -59,6 +61,8 @@ Obsoletes:      RedhawkDevUtils_v1-devel < 4.0.0
 
 %description devel
 Libraries and header files for REDHAWK shared library %{name}
+ * Commit: __REVISION__
+ * Source Date/Time: __DATETIME__
 
 %prep
 %setup -q
