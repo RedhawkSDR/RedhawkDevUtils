@@ -81,7 +81,7 @@ namespace SUPPORTED_DATA_TYPE {
      data_description* data_type_helper::get_dt_descriptor(const std::string &identifier){
          std::map<std::string, data_description>::iterator iter = dt_map.find(identifier);
          if(iter == dt_map.end()){
-        	 iter = dt_map.find(UNKNOWN);
+             iter = dt_map.find(UNKNOWN);
          }
          return &(iter->second);
      }
