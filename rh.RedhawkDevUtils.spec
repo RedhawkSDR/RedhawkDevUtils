@@ -29,7 +29,7 @@
 %define _infodir       %{_prefix}/info
 
 Name:           rh.RedhawkDevUtils
-Version:        4.0.2
+Version:        5.0.0
 Release:        1%{?dist}
 Summary:        REDHAWK shared library %{name}
 

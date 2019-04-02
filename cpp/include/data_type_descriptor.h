@@ -54,47 +54,51 @@ namespace SUPPORTED_DATA_TYPE {
     const std::string ALAW("ALAW");
     const std::string MULAW("MULAW");
 
-    // No byteswapping
+    // Byte Order N/A
     const std::string CHAR("CHAR");
     const std::string OCTET("OCTET");
-    const std::string SHORT("SHORT");
-    const std::string USHORT("USHORT");
-    const std::string LONG("LONG");
-    const std::string ULONG("ULONG");
-    const std::string FLOAT("FLOAT");
-    const std::string DOUBLE("DOUBLE");
-    const std::string LONGLONG("LONGLONG");
 
-    // With byteswapping
-    const std::string SHORT_BS("SHORT_BYTESWAPPED");
-    const std::string USHORT_BS("USHORT_BYTESWAPPED");
-    const std::string LONG_BS("LONG_BYTESWAPPED");
-    const std::string ULONG_BS("ULONG_BYTESWAPPED");
-    const std::string FLOAT_BS("FLOAT_BYTESWAPPED");
-    const std::string DOUBLE_BS("DOUBLE_BYTESWAPPED");
-    const std::string LONGLONG_BS("LONGLONG_BYTESWAPPED");
+    // Little Endian
+    const std::string SHORT_LITTLE_ENDIAN("SHORT_LITTLE_ENDIAN");
+    const std::string USHORT_LITTLE_ENDIAN("USHORT_LITTLE_ENDIAN");
+    const std::string LONG_LITTLE_ENDIAN("LONG_LITTLE_ENDIAN");
+    const std::string ULONG_LITTLE_ENDIAN("ULONG_LITTLE_ENDIAN");
+    const std::string FLOAT_LITTLE_ENDIAN("FLOAT_LITTLE_ENDIAN");
+    const std::string DOUBLE_LITTLE_ENDIAN("DOUBLE_LITTLE_ENDIAN");
+    const std::string LONGLONG_LITTLE_ENDIAN("LONGLONG_LITTLE_ENDIAN");
+
+    // Big Endian
+    const std::string SHORT_BIG_ENDIAN("SHORT_BIG_ENDIAN");
+    const std::string USHORT_BIG_ENDIAN("USHORT_BIG_ENDIAN");
+    const std::string LONG_BIG_ENDIAN("LONG_BIG_ENDIAN");
+    const std::string ULONG_BIG_ENDIAN("ULONG_BIG_ENDIAN");
+    const std::string FLOAT_BIG_ENDIAN("FLOAT_BIG_ENDIAN");
+    const std::string DOUBLE_BIG_ENDIAN("DOUBLE_BIG_ENDIAN");
+    const std::string LONGLONG_BIG_ENDIAN("LONGLONG_BIG_ENDIAN");
 
     // Complex
-    // No byteswapping
+    // Byte Order N/A
     const std::string COMPLEX_CHAR("COMPLEX_CHAR");
     const std::string COMPLEX_UCHAR("COMPLEX_UCHAR");
     const std::string COMPLEX_OCTET(COMPLEX_UCHAR);
-    
-    const std::string COMPLEX_SHORT("COMPLEX_SHORT");
-    const std::string COMPLEX_USHORT("COMPLEX_USHORT");
-    const std::string COMPLEX_LONG("COMPLEX_LONG");
-    const std::string COMPLEX_ULONG("COMPLEX_ULONG");
-    const std::string COMPLEX_FLOAT("COMPLEX_FLOAT");
-    const std::string COMPLEX_DOUBLE("COMPLEX_DOUBLE");
-    const std::string COMPLEX_LONGLONG("COMPLEX_LONGLONG");
-    // With byteswapping
-    const std::string COMPLEX_SHORT_BS("COMPLEX_SHORT_BYTESWAPPED");
-    const std::string COMPLEX_USHORT_BS("COMPLEX_USHORT_BYTESWAPPED");
-    const std::string COMPLEX_LONG_BS("COMPLEX_LONG_BYTESWAPPED");
-    const std::string COMPLEX_ULONG_BS("COMPLEX_ULONG_BYTESWAPPED");
-    const std::string COMPLEX_FLOAT_BS("COMPLEX_FLOAT_BYTESWAPPED");
-    const std::string COMPLEX_DOUBLE_BS("COMPLEX_DOUBLE_BYTESWAPPED");
-    const std::string COMPLEX_LONGLONG_BS("COMPLEX_LONGLONG_BYTESWAPPED");
+
+    // Little Endian
+    const std::string COMPLEX_SHORT_LITTLE_ENDIAN("COMPLEX_SHORT_LITTLE_ENDIAN");
+    const std::string COMPLEX_USHORT_LITTLE_ENDIAN("COMPLEX_USHORT_LITTLE_ENDIAN");
+    const std::string COMPLEX_LONG_LITTLE_ENDIAN("COMPLEX_LONG_LITTLE_ENDIAN");
+    const std::string COMPLEX_ULONG_LITTLE_ENDIAN("COMPLEX_ULONG_LITTLE_ENDIAN");
+    const std::string COMPLEX_FLOAT_LITTLE_ENDIAN("COMPLEX_FLOAT_LITTLE_ENDIAN");
+    const std::string COMPLEX_DOUBLE_LITTLE_ENDIAN("COMPLEX_DOUBLE_LITTLE_ENDIAN");
+    const std::string COMPLEX_LONGLONG_LITTLE_ENDIAN("COMPLEX_LONGLONG_LITTLE_ENDIAN");
+
+    // Big Endian
+    const std::string COMPLEX_SHORT_BIG_ENDIAN("COMPLEX_SHORT_BIG_ENDIAN");
+    const std::string COMPLEX_USHORT_BIG_ENDIAN("COMPLEX_USHORT_BIG_ENDIAN");
+    const std::string COMPLEX_LONG_BIG_ENDIAN("COMPLEX_LONG_BIG_ENDIAN");
+    const std::string COMPLEX_ULONG_BIG_ENDIAN("COMPLEX_ULONG_BIG_ENDIAN");
+    const std::string COMPLEX_FLOAT_BIG_ENDIAN("COMPLEX_FLOAT_BIG_ENDIAN");
+    const std::string COMPLEX_DOUBLE_BIG_ENDIAN("COMPLEX_DOUBLE_BIG_ENDIAN");
+    const std::string COMPLEX_LONGLONG_BIG_ENDIAN("COMPLEX_LONGLONG_BIG_ENDIAN");
 
 
     //////////////////////
@@ -133,8 +137,8 @@ namespace SUPPORTED_DATA_TYPE {
     //////////////////////
 
     enum endian_enum {
-        //        _big_endian_,
-        //        _little_endian_,
+        _big_endian_,
+        _little_endian_,
         _byte_swap_,
         _keep_endianess_
     };

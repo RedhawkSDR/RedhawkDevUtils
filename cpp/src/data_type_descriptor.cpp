@@ -36,37 +36,37 @@ namespace SUPPORTED_DATA_TYPE {
 
         dt_map.insert(std::make_pair(CHAR, data_description(CHAR, _8t_, _scalar_, _keep_endianess_, _none_, &typeid (char))));
         dt_map.insert(std::make_pair(OCTET, data_description(OCTET, _8o_, _scalar_, _keep_endianess_, _none_, &typeid (unsigned char))));
-        dt_map.insert(std::make_pair(SHORT, data_description(SHORT, _16t_, _scalar_, _keep_endianess_, _none_, &typeid (short))));
-        dt_map.insert(std::make_pair(USHORT, data_description(USHORT, _16o_, _scalar_, _keep_endianess_, _none_, &typeid (unsigned short))));
-        dt_map.insert(std::make_pair(LONG, data_description(LONG, _32t_, _scalar_, _keep_endianess_, _none_, &typeid (long))));
-        dt_map.insert(std::make_pair(ULONG, data_description(ULONG, _32o_, _scalar_, _keep_endianess_, _none_, &typeid (unsigned long))));
-        dt_map.insert(std::make_pair(FLOAT, data_description(FLOAT, _32f_, _scalar_, _keep_endianess_, _none_, &typeid (float))));
-        dt_map.insert(std::make_pair(DOUBLE, data_description(DOUBLE, _64f_, _scalar_, _keep_endianess_, _none_, &typeid (double))));
-        dt_map.insert(std::make_pair(LONGLONG, data_description(LONGLONG, _64t_, _scalar_, _keep_endianess_, _none_, &typeid (long long))));
-        dt_map.insert(std::make_pair(SHORT_BS, data_description(SHORT_BS, _16t_, _scalar_, _byte_swap_, _none_, &typeid (short))));
-        dt_map.insert(std::make_pair(USHORT_BS, data_description(USHORT_BS, _16o_, _scalar_, _byte_swap_, _none_, &typeid (unsigned short))));
-        dt_map.insert(std::make_pair(LONG_BS, data_description(LONG_BS, _32t_, _scalar_, _byte_swap_, _none_, &typeid (long))));
-        dt_map.insert(std::make_pair(ULONG_BS, data_description(ULONG_BS, _32o_, _scalar_, _byte_swap_, _none_, &typeid (unsigned long))));
-        dt_map.insert(std::make_pair(FLOAT_BS, data_description(FLOAT_BS, _32f_, _scalar_, _byte_swap_, _none_, &typeid (float))));
-        dt_map.insert(std::make_pair(DOUBLE_BS, data_description(DOUBLE_BS, _64f_, _scalar_, _byte_swap_, _none_, &typeid (double))));
-        dt_map.insert(std::make_pair(LONGLONG_BS, data_description(LONGLONG_BS, _64t_, _scalar_, _byte_swap_, _none_, &typeid (long long))));
+        dt_map.insert(std::make_pair(SHORT_LITTLE_ENDIAN, data_description(SHORT_LITTLE_ENDIAN, _16t_, _scalar_, _little_endian_, _none_, &typeid (short))));
+        dt_map.insert(std::make_pair(USHORT_LITTLE_ENDIAN, data_description(USHORT_LITTLE_ENDIAN, _16o_, _scalar_, _little_endian_, _none_, &typeid (unsigned short))));
+        dt_map.insert(std::make_pair(LONG_LITTLE_ENDIAN, data_description(LONG_LITTLE_ENDIAN, _32t_, _scalar_, _little_endian_, _none_, &typeid (long))));
+        dt_map.insert(std::make_pair(ULONG_LITTLE_ENDIAN, data_description(ULONG_LITTLE_ENDIAN, _32o_, _scalar_, _little_endian_, _none_, &typeid (unsigned long))));
+        dt_map.insert(std::make_pair(FLOAT_LITTLE_ENDIAN, data_description(FLOAT_LITTLE_ENDIAN, _32f_, _scalar_, _little_endian_, _none_, &typeid (float))));
+        dt_map.insert(std::make_pair(DOUBLE_LITTLE_ENDIAN, data_description(DOUBLE_LITTLE_ENDIAN, _64f_, _scalar_, _little_endian_, _none_, &typeid (double))));
+        dt_map.insert(std::make_pair(LONGLONG_LITTLE_ENDIAN, data_description(LONGLONG_LITTLE_ENDIAN, _64t_, _scalar_, _little_endian_, _none_, &typeid (long long))));
+        dt_map.insert(std::make_pair(SHORT_BIG_ENDIAN, data_description(SHORT_BIG_ENDIAN, _16t_, _scalar_, _big_endian_, _none_, &typeid (short))));
+        dt_map.insert(std::make_pair(USHORT_BIG_ENDIAN, data_description(USHORT_BIG_ENDIAN, _16o_, _scalar_, _big_endian_, _none_, &typeid (unsigned short))));
+        dt_map.insert(std::make_pair(LONG_BIG_ENDIAN, data_description(LONG_BIG_ENDIAN, _32t_, _scalar_, _big_endian_, _none_, &typeid (long))));
+        dt_map.insert(std::make_pair(ULONG_BIG_ENDIAN, data_description(ULONG_BIG_ENDIAN, _32o_, _scalar_, _big_endian_, _none_, &typeid (unsigned long))));
+        dt_map.insert(std::make_pair(FLOAT_BIG_ENDIAN, data_description(FLOAT_BIG_ENDIAN, _32f_, _scalar_, _big_endian_, _none_, &typeid (float))));
+        dt_map.insert(std::make_pair(DOUBLE_BIG_ENDIAN, data_description(DOUBLE_BIG_ENDIAN, _64f_, _scalar_, _big_endian_, _none_, &typeid (double))));
+        dt_map.insert(std::make_pair(LONGLONG_BIG_ENDIAN, data_description(LONGLONG_BIG_ENDIAN, _64t_, _scalar_, _big_endian_, _none_, &typeid (long long))));
 
         dt_map.insert(std::make_pair(COMPLEX_CHAR, data_description(COMPLEX_CHAR, _8t_, _complex_, _keep_endianess_, _none_, &typeid (char))));
         dt_map.insert(std::make_pair(COMPLEX_OCTET, data_description(COMPLEX_OCTET, _8o_, _complex_, _keep_endianess_, _none_, &typeid (unsigned char))));
-        dt_map.insert(std::make_pair(COMPLEX_SHORT, data_description(COMPLEX_SHORT, _16t_, _complex_, _keep_endianess_, _none_, &typeid (short))));
-        dt_map.insert(std::make_pair(COMPLEX_USHORT, data_description(COMPLEX_USHORT, _16o_, _complex_, _keep_endianess_, _none_, &typeid (unsigned short))));
-        dt_map.insert(std::make_pair(COMPLEX_LONG, data_description(COMPLEX_LONG, _32t_, _complex_, _keep_endianess_, _none_, &typeid (long))));
-        dt_map.insert(std::make_pair(COMPLEX_ULONG, data_description(COMPLEX_ULONG, _32o_, _complex_, _keep_endianess_, _none_, &typeid (unsigned long))));
-        dt_map.insert(std::make_pair(COMPLEX_FLOAT, data_description(COMPLEX_FLOAT, _32f_, _complex_, _keep_endianess_, _none_, &typeid (float))));
-        dt_map.insert(std::make_pair(COMPLEX_DOUBLE, data_description(COMPLEX_DOUBLE, _64f_, _complex_, _keep_endianess_, _none_, &typeid (double))));
-        dt_map.insert(std::make_pair(COMPLEX_LONGLONG, data_description(COMPLEX_LONGLONG, _64t_, _complex_, _keep_endianess_, _none_, &typeid (long long))));
-        dt_map.insert(std::make_pair(COMPLEX_SHORT_BS, data_description(COMPLEX_SHORT_BS, _16t_, _complex_, _byte_swap_, _none_, &typeid (short))));
-        dt_map.insert(std::make_pair(COMPLEX_USHORT_BS, data_description(COMPLEX_USHORT_BS, _16o_, _complex_, _byte_swap_, _none_, &typeid (unsigned short))));
-        dt_map.insert(std::make_pair(COMPLEX_LONG_BS, data_description(COMPLEX_LONG_BS, _32t_, _complex_, _byte_swap_, _none_, &typeid (long))));
-        dt_map.insert(std::make_pair(COMPLEX_ULONG_BS, data_description(COMPLEX_ULONG_BS, _32o_, _complex_, _byte_swap_, _none_, &typeid (unsigned long))));
-        dt_map.insert(std::make_pair(COMPLEX_FLOAT_BS, data_description(COMPLEX_FLOAT_BS, _32f_, _complex_, _byte_swap_, _none_, &typeid (float))));
-        dt_map.insert(std::make_pair(COMPLEX_DOUBLE_BS, data_description(COMPLEX_DOUBLE_BS, _64f_, _complex_, _byte_swap_, _none_, &typeid (double))));
-        dt_map.insert(std::make_pair(COMPLEX_LONGLONG_BS, data_description(COMPLEX_LONGLONG_BS, _64t_, _complex_, _byte_swap_, _none_, &typeid (long long))));
+        dt_map.insert(std::make_pair(COMPLEX_SHORT_LITTLE_ENDIAN, data_description(COMPLEX_SHORT_LITTLE_ENDIAN, _16t_, _complex_, _little_endian_, _none_, &typeid (short))));
+        dt_map.insert(std::make_pair(COMPLEX_USHORT_LITTLE_ENDIAN, data_description(COMPLEX_USHORT_LITTLE_ENDIAN, _16o_, _complex_, _little_endian_, _none_, &typeid (unsigned short))));
+        dt_map.insert(std::make_pair(COMPLEX_LONG_LITTLE_ENDIAN, data_description(COMPLEX_LONG_LITTLE_ENDIAN, _32t_, _complex_, _little_endian_, _none_, &typeid (long))));
+        dt_map.insert(std::make_pair(COMPLEX_ULONG_LITTLE_ENDIAN, data_description(COMPLEX_ULONG_LITTLE_ENDIAN, _32o_, _complex_, _little_endian_, _none_, &typeid (unsigned long))));
+        dt_map.insert(std::make_pair(COMPLEX_FLOAT_LITTLE_ENDIAN, data_description(COMPLEX_FLOAT_LITTLE_ENDIAN, _32f_, _complex_, _little_endian_, _none_, &typeid (float))));
+        dt_map.insert(std::make_pair(COMPLEX_DOUBLE_LITTLE_ENDIAN, data_description(COMPLEX_DOUBLE_LITTLE_ENDIAN, _64f_, _complex_, _little_endian_, _none_, &typeid (double))));
+        dt_map.insert(std::make_pair(COMPLEX_LONGLONG_LITTLE_ENDIAN, data_description(COMPLEX_LONGLONG_LITTLE_ENDIAN, _64t_, _complex_, _little_endian_, _none_, &typeid (long long))));
+        dt_map.insert(std::make_pair(COMPLEX_SHORT_BIG_ENDIAN, data_description(COMPLEX_SHORT_BIG_ENDIAN, _16t_, _complex_, _big_endian_, _none_, &typeid (short))));
+        dt_map.insert(std::make_pair(COMPLEX_USHORT_BIG_ENDIAN, data_description(COMPLEX_USHORT_BIG_ENDIAN, _16o_, _complex_, _big_endian_, _none_, &typeid (unsigned short))));
+        dt_map.insert(std::make_pair(COMPLEX_LONG_BIG_ENDIAN, data_description(COMPLEX_LONG_BIG_ENDIAN, _32t_, _complex_, _big_endian_, _none_, &typeid (long))));
+        dt_map.insert(std::make_pair(COMPLEX_ULONG_BIG_ENDIAN, data_description(COMPLEX_ULONG_BIG_ENDIAN, _32o_, _complex_, _big_endian_, _none_, &typeid (unsigned long))));
+        dt_map.insert(std::make_pair(COMPLEX_FLOAT_BIG_ENDIAN, data_description(COMPLEX_FLOAT_BIG_ENDIAN, _32f_, _complex_, _big_endian_, _none_, &typeid (float))));
+        dt_map.insert(std::make_pair(COMPLEX_DOUBLE_BIG_ENDIAN, data_description(COMPLEX_DOUBLE_BIG_ENDIAN, _64f_, _complex_, _big_endian_, _none_, &typeid (double))));
+        dt_map.insert(std::make_pair(COMPLEX_LONGLONG_BIG_ENDIAN, data_description(COMPLEX_LONGLONG_BIG_ENDIAN, _64t_, _complex_, _big_endian_, _none_, &typeid (long long))));
 
     }
 
@@ -81,7 +81,7 @@ namespace SUPPORTED_DATA_TYPE {
      data_description* data_type_helper::get_dt_descriptor(const std::string &identifier){
          std::map<std::string, data_description>::iterator iter = dt_map.find(identifier);
          if(iter == dt_map.end()){
-        	 iter = dt_map.find(UNKNOWN);
+             iter = dt_map.find(UNKNOWN);
          }
          return &(iter->second);
      }

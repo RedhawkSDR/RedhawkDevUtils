@@ -230,7 +230,7 @@ abi-check:
                  --devel-pkg1 $namespace$CI_PROJECT_NAME-devel-$abi_check_previous_release.rh2.2.el7.x86_64.rpm
                  --devel-pkg2 output/x86_64/$namespace$CI_PROJECT_NAME-devel*.rpm
                  $namespace$CI_PROJECT_NAME-$abi_check_previous_release.rh2.2.el7.x86_64.rpm
-                 output/x86_64/$namespace$CI_PROJECT_NAME-4*.rpm
+                 output/x86_64/$namespace$CI_PROJECT_NAME-5*.rpm
   except:
     - master
     - /^.*-external$/
